@@ -42,18 +42,138 @@
 另外，毫無意外的，此教材我目前只提供Mac版本..... Windows有請幫手幫我翻譯吧！</p>
 
 <h1>
-<a id="git安裝與設置" class="anchor" href="#git%E5%AE%89%E8%A3%9D%E8%88%87%E8%A8%AD%E7%BD%AE" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Git安裝與設置</h1>
+<a id="git安裝設置與應用" class="anchor" href="#git%E5%AE%89%E8%A3%9D%E8%A8%AD%E7%BD%AE%E8%88%87%E6%87%89%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Git安裝設置與應用</h1>
 
-<p>安裝過程可以分為以下階段</p>
+<p>安裝過程可以分為以下階段，時間約莫10~15分鐘。</p>
+
+<blockquote>
+<p>Git安裝設置</p>
+</blockquote>
 
 <ol>
-<li>安裝</li>
+<li>安裝Git</li>
 <li>GitHub帳號建立</li>
 <li>Git設定帳號</li>
 <li>SSH Key建立</li>
 <li>加入SSH Key 至 GitHub帳號</li>
 <li>測試 SSH Key</li>
+<li>安裝GitHub Desktop</li>
 </ol>
+
+<blockquote>
+<p>GitHub應用與練習</p>
+</blockquote>
+
+<ol>
+<li>GitHub Desktop - Add、Clone 練習</li>
+<li>GitHub Pages練習</li>
+<li>練習建立一個分析結果至Github Pages！</li>
+</ol>
+
+<h2>
+<a id="安裝git" class="anchor" href="#%E5%AE%89%E8%A3%9Dgit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>安裝Git</h2>
+
+<p>Git安裝上非常簡單，我們只需要至<a href="https://git-scm.com/download/mac">官網</a>、點選<code>maintained build</code>下載安裝檔並且執行就可以囉！  </p>
+
+<p>Git安裝完後會存在我們電腦中，他就像是一個你的手下(程式)，會為你監視任何你有興趣的人(資料夾、檔案)，監視他的一舉一動(新增、刪除、修改、...)。如果你叫他監視你的一個存放<code>R Script</code>的資料夾，他會為你監視資料夾內的<code>R Script</code>的任何異動，在每一個<strong>提交的時間點</strong>(Commit的概念，晚點提到)。</p>
+
+<h2>
+<a id="git設定帳號" class="anchor" href="#git%E8%A8%AD%E5%AE%9A%E5%B8%B3%E8%99%9F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Git設定帳號</h2>
+
+<p>在開始進行一些Git的初始設定之前，我們需要先到<a href="https://github.com/">GitHub官網</a>辦一個GitHub帳號，並且完成認證！<br>
+GitHub就像是Git的網路存放處，若沒有GitHub，Git所監視的對象則無法分享給除了你以外的人知道，所以我們要打通Git與GitHub之間的橋樑。但目前雖然有了Git跟GitHub，但他們兩個卻無法成功認得對方，接下來就讓他們兩個相認！</p>
+
+<p>安裝完Git之後請打開<code>Terminal(終端機)</code>。接下來我們要進行一些Git的初始設定：  </p>
+
+<blockquote>
+<p>告訴Git你是誰！  (YOUR NAME可以隨意填寫、YOUR EMAIL ADDRESS請填寫你申請GitHub的帳號)  </p>
+</blockquote>
+
+<pre><code>git config --global user.name "YOUR NAME"
+git config --global user.email "YOUR EMAIL ADDRESS"
+</code></pre>
+
+<h2>
+<a id="ssh-key建立" class="anchor" href="#ssh-key%E5%BB%BA%E7%AB%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SSH Key建立</h2>
+
+<p>安裝完Git、辦完GitHub帳號後，我們也讓Git知道我們是誰了，接下來要讓Git跟GitHub彼此相認！  </p>
+
+<blockquote>
+<p>首先我們需要<strong>產生</strong>一把相認的鑰匙(SSH KEY)，讓Git跟GitHub可以互通往來。(<a href="mailto:your_email@example.com">your_email@example.com</a> 填成剛剛註冊GitHub的email)  </p>
+</blockquote>
+
+<pre><code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+</code></pre>
+
+<blockquote>
+<p>顯示以下資訊，按一下Enter</p>
+</blockquote>
+
+<pre><code>Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]
+</code></pre>
+
+<blockquote>
+<p>打一組你常用的密碼，之後會需要這組密碼！  </p>
+</blockquote>
+
+<pre><code>Enter passphrase (empty for no passphrase): [Type a passphrase]
+Enter same passphrase again: [Type passphrase again]
+</code></pre>
+
+<h2>
+<a id="加入ssh-key-至-github帳號" class="anchor" href="#%E5%8A%A0%E5%85%A5ssh-key-%E8%87%B3-github%E5%B8%B3%E8%99%9F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>加入SSH Key 至 GitHub帳號</h2>
+
+<p>雖然順利產生了一把鑰匙，但我們會需要把鑰匙存放到對的管理室，讓Git這個手下知道當他要找GitHub時候，去哪裡拿這把鑰匙。  </p>
+
+<blockquote>
+<p>將鑰匙(SSH KEY)放置管理室  </p>
+</blockquote>
+
+<pre><code>eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+</code></pre>
+
+<p>好啦！現在Git已經知道去哪拿這把鑰匙去找GitHub了，但GitHub還不清楚這個Git是否室可信任的人阿！<br>
+所以我們需要打一副一樣的鑰匙放在GitHub那邊，讓他們兩個做相認！</p>
+
+<blockquote>
+<p>為了將這把鑰匙打一副，我們先複製到剪貼簿上  </p>
+</blockquote>
+
+<pre><code>pbcopy &lt; ~/.ssh/id_rsa.pub
+</code></pre>
+
+<blockquote>
+<p>在GitHub中加入這把鑰匙   </p>
+</blockquote>
+
+<p>開啟GitHub網站 --&gt; 右上角點選自己 --&gt; Setting --&gt; 左邊點選SSH Key --&gt; 右邊點選New SSH Key --&gt; Title隨便打 --&gt; 在Key那欄按<code>Cmd+V</code>--&gt; Add SSH Key   </p>
+
+<p>好啦！這樣他們兩個已經可以相認囉！接下來測試一下</p>
+
+<h2>
+<a id="測試-ssh-key" class="anchor" href="#%E6%B8%AC%E8%A9%A6-ssh-key" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>測試 SSH Key</h2>
+
+<blockquote>
+<p>在終端機輸入以下指令，成功了話會顯示Hi username! You've successfully authenticated, but GitHub does not provide shell access.  </p>
+</blockquote>
+
+<pre><code>ssh -T unityculture@github.com
+</code></pre>
+
+<p>若有任何問題請參考<a href="https://help.github.com/articles/testing-your-ssh-connection/">這篇</a></p>
+
+<h2>
+<a id="安裝github-desktop" class="anchor" href="#%E5%AE%89%E8%A3%9Dgithub-desktop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>安裝GitHub Desktop</h2>
+
+<h2>
+<a id="github-desktop---addclone-練習" class="anchor" href="#github-desktop---addclone-%E7%B7%B4%E7%BF%92" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>GitHub Desktop - Add、Clone 練習</h2>
+
+<h2>
+<a id="github-pages練習" class="anchor" href="#github-pages%E7%B7%B4%E7%BF%92" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>GitHub Pages練習</h2>
+
+<h2>
+<a id="練習建立一個分析結果至github-pages" class="anchor" href="#%E7%B7%B4%E7%BF%92%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%88%86%E6%9E%90%E7%B5%90%E6%9E%9C%E8%87%B3github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>練習建立一個分析結果至Github Pages！</h2>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/unityculture/GitTutorial">Git -- Basic</a> is maintained by <a href="https://github.com/unityculture">unityculture</a>.</span>
