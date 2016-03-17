@@ -1,0 +1,6 @@
+{
+  "name": "Git -- Basic",
+  "tagline": "Git Tutorial For YueTeam",
+  "body": "# 前言碎碎念\r\n\r\nHi，余團隊的各位，我是敬昇，終於把積欠已久的**Git上手教材**生出來啦。雖然Git與GitHub對各位為**非必備**的使用工具，但許多外國知名學校與課程已將Git納入課程當中，如：[UC-Berkley Stat. MA](http://statistics.berkeley.edu/computing/git)、[Coursera](https://zh-tw.coursera.org/specializations/jhu-data-science)、[DATAQUEST](https://www.dataquest.io/track/data-scientist-track)，由此可見，在外國的統計、資料科學方面的課程中，相當重視Git這個熱門的版本控制工具。  \r\n  \r\n在學習Git前，我常常在思考Git這個工具對我們有什麼用處？我想**目前**的用處不外乎下列兩點：  \r\n\r\n* Shiny Server 開發版本控制\r\n* 靜態網頁的呈現 (By GitHub pages)  \r\n  \r\n隨著團隊Shiny-Server、Dashboard的問世，在小組開發Shiny App過程中，需要大量的修改代碼與佈署(Deploy)Shiny App，合作開發中如果版本沒有控制好，可能會有悲劇慘案的發生！（如App無限Error卻也抓不出原因）  \r\n  \r\n另外透過GitHub pages，我們可以很輕易的將網頁內容(如html file)放在Github上，使我們可以輕易的將網站呈現給其他人！如：個人自傳、個人履歷、Rmd分析的報告、R Slide。\r\n  \r\n但目前僅研究Git了基本入門與簡單應用，一方面是因為時間不夠、另一方面是覺得目前需求還不大，若Git對於余團隊未來相當重要了話，在有請各位幫忙補充更多的內容進去吧！因此本份教材僅提供**簡易入門上手**、**建議學習資源**這兩部分，若時間允許未來我會在新增些內容！  \r\n  \r\n本篇在於**快速上手**四字，因此會大量地用一些譬喻的方式去幫助各位了解（也就是~~非常不專業~~、而且有可能會有誤導XDD），若有譬喻錯誤的部份在提出來讓我知道，幫助我修正內容吧！  \r\n另外，毫無意外的，此教材我目前只提供Mac版本..... Windows有請幫手幫我翻譯吧！\r\n\r\n# Git安裝與設置\r\n\r\n安裝過程可以分為以下階段\r\n\r\n1. 安裝\r\n2. GitHub帳號建立\r\n3. Git設定帳號\r\n4. SSH Key建立\r\n5. 加入SSH Key 至 GitHub帳號\r\n6. 測試 SSH Key\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
